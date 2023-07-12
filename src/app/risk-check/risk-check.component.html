@@ -1,5 +1,28 @@
 <p>risk-check works!</p>
-<p>risk-check works!</p>
-<p>risk-check works!</p>
-<p>risk-check works!</p>
-<p>risk-check works!</p>
+<!-- Button to clear selection -->
+<button (click)="clearSelection()">Clear Selection</button>
+<br><br>
+<!-- AG Grid Angular Component -->
+<ag-grid-angular
+    style="width: 80%; height: 50%"
+    class="ag-theme-alpine"
+    [columnDefs]="columnDefs"
+    [defaultColDef]="defaultColDef"
+    [rowData]="rowData$ | async"
+    [rowSelection]="'multiple'"
+    [animateRows]="true"
+    (gridReady)="onGridReady($event)"
+    (cellClicked)="onCellClicked($event)"
+  ></ag-grid-angular>
+
+<app-dialog></app-dialog>
+<br>
+<a href="https://material.angular.io/components/tabs/overview">Visit Angular Materil Components</a>
+<br><br>
+<mat-form-field>
+  <mat-label>Choose a date</mat-label>
+  <input matInput [matDatepicker]="picker">
+  <mat-hint>MM/DD/YYYY</mat-hint>
+  <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>
